@@ -1,0 +1,50 @@
+textarea {
+    min-height: 400px;
+}
+
+.emails-box {
+    border: 0.5px solid #686565;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.emails-box:hover {
+    cursor: pointer;
+}
+
+.firstCapitalized::first-letter {
+    text-transform: uppercase;
+}
+
+.time {
+    color: #6a6969;
+}
+.read {
+    background-color: #bdbcbc;
+}
+.unread {
+    background-color: #ffffff;
+}
+
+dl {
+    display: flex;
+    flex-flow: wrap;
+}
+
+dt {
+    width: 20%;
+}
+
+label {
+    width: 20%;
+    margin-right: 5px;
+}
+
+input[type=checkbox] {
+    margin-left: 5px;
+}
+
+ dd {
+    width: 80%;
+}

@@ -151,13 +151,11 @@ function load_email(emailId, initial_mailbox) {
         compose_email()
 
         document.querySelector('#compose-recipients').value = email.sender;
-        document.querySelector('#compose-subject').value = `${email.subject.includes('Re:') ? email.subject : 'Re' + email.subject}`
+        document.querySelector('#compose-subject').value = `${email.subject.includes('Re:') ? email.subject : 'Re: ' + email.subject}`
         
         document.querySelector('#compose-body').value = `\n-------------\n
         On ${email.timestamp} ${email.sender} wrote:
         ${email.body}`;
-
-        document.querySelector('#compose-body')
 
       })
 
@@ -171,7 +169,7 @@ function load_email(emailId, initial_mailbox) {
       } else {
         console.log(initial_mailbox)
         archiveBtn.innerHTML = email.archived === true ? 'Unarchive' : 'archive'
-      archiveBtn.addEventListener('click', () => {
+        archiveBtn.addEventListener('click', () => {
           fetch(`/emails/${emailId}`, {
             method: 'PUT',
             body: JSON.stringify({
@@ -180,6 +178,7 @@ function load_email(emailId, initial_mailbox) {
           }).catch((error) => {
             console.log(error)
           })
+          load_mailbox('inbox')
       })
       archiveBtn.classList.add("btn","btn-primary")
 
